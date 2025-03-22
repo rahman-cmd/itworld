@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 
 interface Particle {
   x: number;
@@ -18,7 +18,7 @@ export function NetworkAnimation() {
 
   const initParticles = (width: number, height: number) => {
     const particles: Particle[] = [];
-    const particleCount = Math.min(Math.floor((width * height) / 15000), 100);
+    const particleCount = Math.min(Math.floor((width * height) / 12000), 150);
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -33,7 +33,7 @@ export function NetworkAnimation() {
     return particles;
   };
 
-  const animate = () => {
+  const animate = useCallback(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
 
@@ -53,7 +53,7 @@ export function NetworkAnimation() {
       // Draw particle
       ctx.beginPath();
       ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255, 146, 43, 0.9)';
+      ctx.fillStyle = 'rgba(255, 146, 43, 0.85)';
       ctx.fill();
 
       // Connect particles
@@ -67,8 +67,8 @@ export function NetworkAnimation() {
           ctx.beginPath();
           ctx.moveTo(particle.x, particle.y);
           ctx.lineTo(particle2.x, particle2.y);
-          ctx.strokeStyle = `rgba(255, 146, 43, ${0.45 * (1 - distance / 180)})`;
-          ctx.lineWidth = 1.5;
+          ctx.strokeStyle = `rgba(255, 146, 43, ${0.55 * (1 - distance / 180)})`;
+          ctx.lineWidth = 2;
           ctx.stroke();
         }
       }
@@ -79,13 +79,13 @@ export function NetworkAnimation() {
       const distance = Math.sqrt(dx * dx + dy * dy);
 
       if (distance < 180) {
-        particle.x += dx * 0.025;
-        particle.y += dy * 0.025;
+        particle.x += dx * 0.03;
+        particle.y += dy * 0.03;
       }
     });
 
     animationFrameRef.current = requestAnimationFrame(animate);
-  };
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -118,7 +118,7 @@ export function NetworkAnimation() {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, []);
+  }, [animate]);
 
   return (
     <canvas

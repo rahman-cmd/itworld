@@ -11,7 +11,7 @@ export function Contact() {
             Get in Touch
           </h2>
           <p className="text-foreground/80 max-w-2xl mx-auto">
-            Ready to transform your business? Let's discuss how we can help.
+            Ready to transform your business? Let&apos;s discuss how we can help.
           </p>
         </div>
 

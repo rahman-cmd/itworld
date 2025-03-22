@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ export function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
-            <img src="/itworld.svg" alt="IT World" className="h-8 w-auto" />
+            <Image src="/itworld.svg" alt="IT World" width={32} height={32} className="w-auto h-8" />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">

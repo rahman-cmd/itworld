@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export function Testimonials() {
   const testimonials = [
@@ -44,10 +45,12 @@ export function Testimonials() {
               className="card p-6 rounded-xl bg-foreground/5 hover:bg-foreground/10 border border-foreground/10 transition-all duration-300"
             >
               <div className="flex items-center mb-4">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full mr-4"
+                  width={48}
+                  height={48}
+                  className="rounded-full mr-4"
                 />
                 <div>
                   <h4 className="font-semibold">{testimonial.name}</h4>

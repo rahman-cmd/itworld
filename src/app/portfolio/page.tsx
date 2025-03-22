@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/ui/navbar";
+import Image from 'next/image';
 
 export default function Portfolio() {
   const projects = [
@@ -50,9 +51,11 @@ export default function Portfolio() {
                 className="group relative overflow-hidden rounded-2xl bg-foreground/5 border border-foreground/10 hover:bg-foreground/10 transition-all duration-300"
               >
                 <div className="aspect-video w-full overflow-hidden">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
+                    width={800}
+                    height={600}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>

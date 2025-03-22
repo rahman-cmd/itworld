@@ -13,7 +13,7 @@ export function Hero() {
             Transforming Ideas into Digital Reality
           </h1>
           <p className="text-lg md:text-xl mb-8 text-foreground/80">
-            Innovative IT Solutions for Tomorrow's Challenges
+            Innovative IT Solutions for Tomorrow&apos;s Challenges
           </p>
           <div className="flex gap-4 justify-center">
             <button className="px-8 py-3 rounded-full bg-gradient-to-r from-orange-400 to-amber-500 text-white font-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
